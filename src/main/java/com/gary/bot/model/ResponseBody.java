@@ -1,5 +1,12 @@
 package com.gary.bot.model;
 
+/**
+ * Domain object used to represent the 'body' field in the response to calls to
+ * the BUX backend
+ * 
+ * @author Gary
+ *
+ */
 public class ResponseBody {
 
 	private String userId;
@@ -9,7 +16,7 @@ public class ResponseBody {
 	private String errorCode;
 	private String securityId;
 	private String currentPrice;
-	
+
 	public String getSecurityId() {
 		return securityId;
 	}
@@ -17,7 +24,7 @@ public class ResponseBody {
 	public String getCurrentPrice() {
 		return currentPrice;
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}
@@ -29,15 +36,15 @@ public class ResponseBody {
 	public String getTime() {
 		return time;
 	}
-	
+
 	public String getDeveloperMessage() {
 		return developerMessage;
 	}
-	
+
 	public String getErrorCode() {
 		return errorCode;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "ResponseBody [userId=" + userId + ", sessionId=" + sessionId + ", time=" + time + ", developerMessage="
