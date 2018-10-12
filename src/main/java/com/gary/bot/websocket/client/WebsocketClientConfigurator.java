@@ -13,8 +13,13 @@ import javax.websocket.ClientEndpointConfig;
  * @author Gary
  *
  */
-public class CustomClientEndpointConfigurator extends ClientEndpointConfig.Configurator {
+public class WebsocketClientConfigurator extends ClientEndpointConfig.Configurator {
 
+	/**
+	 * Lifecycle method which is hooked into before the call is made to the
+	 * websocket server endpoint. Used to set the authorization header on the
+	 * request in order to authenticate successfully with the websocket server
+	 */
 	@Override
 	public void beforeRequest(Map<String, List<String>> headers) {
 		List<String> authTokenHeader = new ArrayList<String>();

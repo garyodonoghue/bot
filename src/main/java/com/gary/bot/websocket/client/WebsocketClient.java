@@ -23,7 +23,7 @@ import com.gary.bot.websocket.client.handler.SocketMessageHandler;
  * @author Gary
  *
  */
-@ClientEndpoint(configurator = CustomClientEndpointConfigurator.class)
+@ClientEndpoint(configurator = WebsocketClientConfigurator.class)
 public class WebsocketClient {
 
 	private Session userSession = null;

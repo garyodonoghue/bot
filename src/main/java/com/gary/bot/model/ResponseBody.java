@@ -17,6 +17,34 @@ public class ResponseBody {
 	private String securityId;
 	private String currentPrice;
 
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public void setDeveloperMessage(String developerMessage) {
+		this.developerMessage = developerMessage;
+	}
+
+	public void setErrorCode(String errorCode) {
+		this.errorCode = errorCode;
+	}
+
+	public void setSecurityId(String securityId) {
+		this.securityId = securityId;
+	}
+
+	public void setCurrentPrice(String currentPrice) {
+		this.currentPrice = currentPrice;
+	}
+
 	public String getSecurityId() {
 		return securityId;
 	}

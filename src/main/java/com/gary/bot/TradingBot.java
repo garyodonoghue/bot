@@ -21,9 +21,13 @@ public class TradingBot {
 	public static void main(String[] args) {
 		try {
 			URI socketEnpoint = new URI(System.getProperty("wsEndpoint"));
-			float lowerLimitSellPrice = 12739.9f;
-			float upperLimitSellPrice = 12819.9f;
-			float buyPrice = 12753.7f;
+
+			// These values could have just as easily been passed as runtime
+			// args in the app runtime configuration, or as system.in params
+			// entered by the user, but same effect doing it here
+			float lowerLimitSellPrice = 11590.5f;
+			float upperLimitSellPrice = 11599.0f;
+			float buyPrice = 11591.5f;
 			String productId = "sb26493";
 
 			TradingParameters tradeConstraints = new TradingParameters(productId, lowerLimitSellPrice,

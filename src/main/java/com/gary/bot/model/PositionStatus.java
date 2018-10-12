@@ -9,6 +9,16 @@ package com.gary.bot.model;
  */
 public class PositionStatus {
 
+	private String id;
+	private String positionId;
+	private Product product;
+	private InvestingAmount investingAmount;
+	private InvestingAmount price;
+	private String leverage;
+	private String direction;
+	private String type;
+	private String dateCreated;
+
 	public String getId() {
 		return id;
 	}
@@ -44,14 +54,4 @@ public class PositionStatus {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-	private String id;
-	private String positionId;
-	private Product product;
-	private InvestingAmount investingAmount;
-	private InvestingAmount price;
-	private String leverage;
-	private String direction;
-	private String type;
-	private String dateCreated;
 }

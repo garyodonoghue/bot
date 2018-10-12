@@ -28,6 +28,7 @@ public class TradingService {
 	private Gson gson;
 
 	private String positionId;
+
 	private TradingServiceHelper tradingServiceHelper;
 
 	private TradingParameters constraints;
@@ -42,6 +43,18 @@ public class TradingService {
 		tradingServiceHelper = new TradingServiceHelper(constraints);
 	}
 
+	public TradingService() {
+	}
+
+	/**
+	 * We received a message from the websocket server containing pricing/quote
+	 * information, react to those values and determine whether to execute a buy
+	 * or sell
+	 * 
+	 * @param responseBody
+	 *            object used to represent the body field in the object sent
+	 *            from the server
+	 */
 	public void handleQuoteMessage(ResponseBody responseBody) {
 		System.out.println(
 				"productId=" + responseBody.getSecurityId() + ", currentPrice=" + responseBody.getCurrentPrice());
@@ -55,6 +68,12 @@ public class TradingService {
 		}
 	}
 
+	/**
+	 * Execute a buy trade for a particular productId using hard-coded buy
+	 * parameters configured in the helper class. Successful call to the backend
+	 * service will return a position id which is then stored and used when
+	 * selling out of that position.
+	 */
 	public void executeBuy() {
 		System.out.println("Executing buy trade on productId=" + this.constraints.getProductId());
 
@@ -70,6 +89,10 @@ public class TradingService {
 				+ ", positionId=" + this.positionId);
 	}
 
+	/**
+	 * Execute a sell trade for a positionId to sell out of a particular
+	 * product.
+	 */
 	public void executeSell() {
 		System.out.println("Executing sell trade on positionId=" + this.positionId);
 
@@ -78,5 +101,25 @@ public class TradingService {
 		this.restTemplate.exchange(this.sellEndpoint + this.positionId, HttpMethod.DELETE, request, String.class);
 		System.out.println("Successfully executed sell trade on positionId=" + this.positionId);
 		this.positionId = null;
+	}
+
+	public RestTemplate getRestTemplate() {
+		return restTemplate;
+	}
+
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
+
+	public TradingServiceHelper getTradingServiceHelper() {
+		return tradingServiceHelper;
+	}
+
+	public void setTradingServiceHelper(TradingServiceHelper tradingServiceHelper) {
+		this.tradingServiceHelper = tradingServiceHelper;
+	}
+
+	public String getPositionId() {
+		return positionId;
 	}
 }
